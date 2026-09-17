@@ -1,639 +1,398 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>AI2Edu Connect — доступ к нейросетям и учебным платформам</title>
-<meta name="description" content="Выделенный защищённый туннель для образовательных задач, исследований и генерации контента.">
-<meta name="robots" content="noindex, nofollow">
-<meta name="theme-color" content="#16162E">
-<link rel="icon" href="/favicon.ico" sizes="any">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
-<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-:root{
-  --ink:#16162E;
-  --paper:#ECEAF3;
-  --surface:#F7F6FB;
-  --line:#C9C5DA;
-  --muted:#56546F;
-  --action:#E8B23A;
-  --action-press:#D79F22;
-  --alert:#A32B2B;
-  --radius:14px;
-  --gutter:20px;
-}
-*{box-sizing:border-box;margin:0;padding:0}
-html{-webkit-text-size-adjust:100%}
-body{
-  background:var(--paper);
-  color:var(--ink);
-  font-family:"Golos Text",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
-  font-size:16px;
-  line-height:1.45;
-  -webkit-font-smoothing:antialiased;
-}
-.wrap{
-  max-width:480px;
-  margin:0 auto;
-  min-height:100vh;
-  background:var(--paper);
-  padding-bottom:env(safe-area-inset-bottom);
-}
-a{color:inherit}
-:focus-visible{outline:3px solid var(--ink);outline-offset:2px;border-radius:4px}
-
-.bar{
-  display:flex;
-  align-items:baseline;
-  justify-content:space-between;
-  gap:12px;
-  padding:16px var(--gutter) 14px;
-  border-bottom:1px solid var(--line);
-}
-.brand{font-weight:900;font-size:18px;letter-spacing:-.02em}
-.bar-note{font-size:13px;color:var(--muted)}
-
-.hero{padding:34px var(--gutter) 28px}
-.hero h1{
-  font-weight:900;
-  font-size:30px;
-  line-height:1.1;
-  letter-spacing:-.035em;
-  margin-bottom:14px;
-}
-.hero .lead{color:var(--muted);font-size:16px;max-width:36ch}
-
-.facts{margin:20px 0 4px;list-style:none}
-.facts li{
-  display:grid;
-  grid-template-columns:14px 1fr;
-  gap:10px;
-  padding:8px 0;
-  font-size:15px;
-}
-.facts li::before{
-  content:"";
-  width:6px;height:6px;
-  border-radius:50%;
-  background:var(--ink);
-  margin-top:8px;
-}
-
-.keybox{
-  margin:24px 0 22px;
-  border:1px solid var(--line);
-  border-radius:var(--radius);
-  background:var(--surface);
-  overflow:hidden;
-}
-.keybox-top{
-  display:flex;
-  align-items:center;
-  gap:8px;
-  padding:11px 14px;
-  border-bottom:1px solid var(--line);
-  font-size:13px;
-  color:var(--muted);
-}
-.dot{width:7px;height:7px;border-radius:50%;background:var(--ink);flex:none}
-.keyline{
-  padding:14px;
-  font-family:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
-  font-size:12.5px;
-  line-height:1.6;
-  word-break:break-all;
-}
-
-.devices{margin:24px 0 22px}
-.devices h3{font-weight:600;font-size:15px;margin-bottom:10px}
-.chips{display:flex;flex-wrap:wrap;gap:8px}
-.chip{
-  padding:9px 14px;
-  border:1px solid var(--line);
-  border-radius:999px;
-  background:var(--surface);
-  color:var(--ink);
-  font-family:inherit;
-  font-size:14.5px;
-  font-weight:500;
-  cursor:pointer;
-}
-.chip.is-on{background:var(--ink);border-color:var(--ink);color:var(--paper)}
-.chip-note{
-  margin-top:12px;
-  padding:13px 15px;
-  border:1px solid var(--line);
-  border-radius:var(--radius);
-  background:var(--surface);
-  color:var(--muted);
-  font-size:14.5px;
-}
-.chip-note b{color:var(--ink);font-weight:600}
-.dl{
-  display:inline-block;
-  margin-top:12px;
-  padding:12px 17px;
-  border:1px solid var(--ink);
-  border-radius:var(--radius);
-  font-weight:500;
-  font-size:15px;
-  text-decoration:none;
-  color:var(--ink);
-}
-.dl:active{background:var(--ink);color:var(--paper)}
-.dl-alt{margin-top:10px;font-size:13.5px;color:var(--muted)}
-.dl-alt a{color:var(--muted)}
-.price-row{display:flex;align-items:baseline;gap:9px;margin-bottom:16px}
-.price{font-weight:900;font-size:30px;letter-spacing:-.03em}
-.price-per{color:var(--muted);font-size:15px}
-
-.widget-box{
-  display:flex;
-  justify-content:center;
-  margin-bottom:12px;
-}
-.widget-box iframe{
-  border:none;
-  width:100%;
-  max-width:320px;
-  height:54px;
-}
-
-.btn{
-  display:block;
-  width:100%;
-  padding:17px 18px;
-  border:none;
-  border-radius:var(--radius);
-  background:var(--action);
-  color:var(--ink);
-  font-family:inherit;
-  font-weight:600;
-  font-size:17px;
-  text-align:center;
-  text-decoration:none;
-  cursor:pointer;
-}
-.btn:active{background:var(--action-press)}
-.btn-quiet{background:transparent;border:1px solid var(--line);font-weight:500}
-.btn-quiet:active{background:var(--surface)}
-.under-btn{margin-top:11px;font-size:13.5px;color:var(--muted);text-align:center}
-
-.sec{padding:30px var(--gutter);border-top:1px solid var(--line)}
-.sec h2{font-weight:800;font-size:21px;letter-spacing:-.02em;margin-bottom:18px}
-
-.steps{list-style:none;counter-reset:s}
-.steps li{
-  counter-increment:s;
-  display:grid;
-  grid-template-columns:26px 1fr;
-  gap:12px;
-  padding:14px 0;
-  border-bottom:1px solid var(--line);
-}
-.steps li:last-child{border-bottom:none;padding-bottom:0}
-.steps li::before{content:counter(s);font-weight:800;font-size:15px;color:var(--muted);padding-top:1px}
-.steps b,.steps span{grid-column:2}
-.steps b{display:block;font-weight:600;font-size:16px;margin-bottom:3px}
-.steps span{color:var(--muted);font-size:14.5px}
-
-.plans{display:grid;gap:10px}
-.plan{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:12px;
-  width:100%;
-  padding:15px 16px;
-  border:1px solid var(--line);
-  border-radius:var(--radius);
-  background:var(--surface);
-  font-family:inherit;
-  color:inherit;
-  text-align:left;
-  cursor:pointer;
-}
-.plan-pick{border-color:var(--ink);border-width:2px;padding:14px 15px}
-.plan-name{font-weight:600;font-size:16px}
-.plan-note{display:block;color:var(--muted);font-size:13.5px;font-weight:400;margin-top:2px}
-.plan-price{font-weight:800;font-size:19px;white-space:nowrap;letter-spacing:-.02em}
-
-/* Единые стили для всех аккордеонов (FAQ и документы) */
-details{
-  border-bottom:1px solid var(--line);
-  margin:0;
-  width:100%;
-}
-summary{
-  padding:16px 28px 16px 0;
-  font-weight:500;
-  font-size:16px;
-  line-height:1.4;
-  cursor:pointer;
-  list-style:none;
-  position:relative;
-  outline:none;
-}
-summary:focus, summary:focus-visible{
-  outline:none;
-}
-summary::-webkit-details-marker{
-  display:none;
-}
-summary::after{
-  content:"";
-  position:absolute;
-  right:4px;
-  top:22px;
-  width:8px;
-  height:8px;
-  border-right:2px solid var(--muted);
-  border-bottom:2px solid var(--muted);
-  transform:rotate(45deg);
-  transition:transform 0.2s ease;
-}
-details[open] summary::after{
-  transform:rotate(-135deg);
-  top:26px;
-}
-details:last-of-type{
-  border-bottom:none;
-}
-details p{
-  padding:0 0 16px;
-  color:var(--muted);
-  font-size:14.5px;
-}
-
-.docs{
-  padding-bottom:24px;
-}
-.doc{
-  padding:2px 0 18px;
-  color:var(--muted);
-  font-size:14.5px;
-}
-.doc p{padding:0 0 11px}
-.doc p:last-child{padding-bottom:0}
-.doc b{color:var(--ink);font-weight:600}
-
-.foot{padding:24px var(--gutter) 34px;border-top:1px solid var(--line);color:var(--muted);font-size:13px}
-.foot a{display:inline-block;margin-right:14px;margin-bottom:7px}
-.foot p{margin-top:10px;max-width:44ch}
-
-.done{display:none;padding:34px var(--gutter) 30px}
-body.paid .done{display:block}
-body.paid .sale{display:none}
-.done h1{font-weight:900;font-size:29px;letter-spacing:-.03em;margin-bottom:10px}
-.done .lead{color:var(--muted);margin-bottom:22px}
-.copied{margin-top:11px;font-size:13.5px;text-align:center;visibility:hidden}
-.copied.on{visibility:visible}
-.stack{display:grid;gap:10px;margin-top:4px}
-.apps{margin-top:26px}
-.apps h3{font-weight:600;font-size:16px;margin-bottom:10px}
-.apps li{list-style:none;padding:10px 0;border-bottom:1px solid var(--line);font-size:15px;display:flex;justify-content:space-between;gap:10px}
-.apps li span{color:var(--muted);font-size:14px}
-.apps a{font-weight:500}
-
-@media (min-width:560px){
-  body{background:var(--surface)}
-  .wrap{border-left:1px solid var(--line);border-right:1px solid var(--line)}
-  .hero h1{font-size:34px}
-}
-@media (prefers-reduced-motion:reduce){
-  *{animation:none!important;transition:none!important}
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ai2Edu — Платформа образовательных инструментов и пространственного AI</title>
+  <link rel="icon" href="./favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="./apple-touch-icon.png">
+  <style>
+    :root {
+      --bg: #0d1117;
+      --card-bg: #161b22;
+      --border: #30363d;
+      --text: #c9d1d9;
+      --text-bright: #f0f6fc;
+      --accent: #238636;
+      --accent-hover: #2ea043;
+      --muted: #8b949e;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      border-bottom: 1px solid var(--border);
+      padding: 1.2rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+    }
+    .logo {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--text-bright);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .logo span {
+      color: #3fb950;
+    }
+    main {
+      flex: 1;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem;
+      width: 100%;
+    }
+    .hero {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+    .hero h1 {
+      font-size: 2.5rem;
+      color: var(--text-bright);
+      margin-bottom: 1rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+    }
+    .hero p {
+      font-size: 1.15rem;
+      color: var(--muted);
+      max-width: 680px;
+      margin: 0 auto;
+    }
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 4rem;
+    }
+    .feature-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.5rem;
+    }
+    .feature-card h3 {
+      color: var(--text-bright);
+      margin-bottom: 0.5rem;
+      font-size: 1.2rem;
+    }
+    .feature-card p {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+    .pricing-header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .pricing-header h2 {
+      font-size: 2rem;
+      color: var(--text-bright);
+      margin-bottom: 0.5rem;
+    }
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+      max-width: 800px;
+      margin: 0 auto 4rem auto;
+    }
+    .plan-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      position: relative;
+    }
+    .plan-card.popular {
+      border-color: #3fb950;
+    }
+    .badge {
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #238636;
+      color: #fff;
+      padding: 0.2rem 0.8rem;
+      font-size: 0.75rem;
+      border-radius: 20px;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+    .plan-title {
+      font-size: 1.4rem;
+      color: var(--text-bright);
+      margin-bottom: 0.5rem;
+    }
+    .plan-price {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--text-bright);
+      margin-bottom: 1.5rem;
+    }
+    .plan-price span {
+      font-size: 1rem;
+      color: var(--muted);
+      font-weight: 400;
+    }
+    .plan-features {
+      list-style: none;
+      margin-bottom: 2rem;
+      text-align: left;
+      font-size: 0.95rem;
+      flex: 1;
+    }
+    .plan-features li {
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .plan-features li::before {
+      content: "✓";
+      color: #3fb950;
+      font-weight: bold;
+    }
+    .widget-container {
+      margin-top: auto;
+      display: flex;
+      justify-content: center;
+      min-height: 54px;
+    }
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2.5rem 1.5rem;
+      background: var(--card-bg);
+      margin-top: auto;
+    }
+    .footer-content {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 2rem;
+      font-size: 0.9rem;
+    }
+    .footer-info p {
+      color: var(--muted);
+      margin-bottom: 0.4rem;
+    }
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .footer-links a {
+      color: var(--text);
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .footer-links a:hover {
+      color: #3fb950;
+      text-decoration: underline;
+    }
+    /* Модальные окна для документов */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.7);
+      justify-content: center;
+      align-items: center;
+      padding: 1.5rem;
+      z-index: 1000;
+    }
+    .modal-content {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      max-width: 700px;
+      max-height: 80vh;
+      overflow-y: auto;
+      padding: 2rem;
+      position: relative;
+    }
+    .modal-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: transparent;
+      border: none;
+      color: var(--muted);
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+    .modal-content h3 {
+      color: var(--text-bright);
+      margin-bottom: 1rem;
+    }
+    .modal-content p, .modal-content ul {
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+      color: var(--text);
+    }
+  </style>
 </head>
 <body>
-<div class="wrap">
 
-  <header class="bar">
-    <div class="brand">AI2Edu Connect</div>
-    <div class="bar-note">от 199 ₽ в месяц</div>
+  <header>
+    <a href="#" class="logo">Ai2<span>Edu</span></a>
+    <div style="font-size: 0.9rem; color: var(--muted);">Платформа цифровых компетенций</div>
   </header>
 
-  <!-- ================= продающий экран ================= -->
-  <div class="sale">
-
+  <main>
     <section class="hero">
-      <h1>Доступ к передовым нейросетям для учёбы и практики</h1>
-      <p class="lead">Выделенный защищённый туннель для образовательных задач, исследований и генерации контента. Стабильный доступ к Gemini, Gamma.app, ChatGPT, Claude, Midjourney, Perplexity и зарубежным базам знаний.</p>
+      <h1>Образовательные алгоритмы и инструменты пространственного AI</h1>
+      <p>Централизованный доступ к закрытой базе прикладных материалов, практическим модулям и вычислительным сценариям для исследователей и архитекторов.</p>
+    </section>
 
-      <ul class="facts">
-        <li>Стабильное соединение для генераций: держит длинные рабочие сессии, рендеринг тяжёлых моделей и потоковую передачу данных без потери контекста.</li>
-        <li>Безопасность рабочих данных: шифрование трафика защищает ваши промпты, токены API и персональные проекты даже в публичных сетях.</li>
-        <li>Быстрый старт на 3 устройствах: импорт конфигурации в 1 клик на ноутбуке, планшете и смартфоне без сложной ручной настройки.</li>
-      </ul>
+    <section class="features">
+      <div class="feature-card">
+        <h3>Методическая база</h3>
+        <p>Структурированные базы промптов, архитектурные пайплайны и алгоритмические модели генерации пространственных концепций.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Лабораторные сценарии</h3>
+        <p>Готовые шаблоны интеграции нейросетевых инструментов в практику градостроительного анализа и мастер-планирования.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Мгновенная выдача</h3>
+        <p>Автоматическое предоставление цифрового идентификатора доступа к сервису сразу после подтверждения транзакции.</p>
+      </div>
+    </section>
 
-      <div class="devices">
-        <h3>В чём это работает</h3>
-        <div class="chips">
-          <button class="chip is-on" type="button" data-dev="ios">iPhone, iPad</button>
-          <button class="chip" type="button" data-dev="android">Android</button>
-          <button class="chip" type="button" data-dev="win">Windows</button>
-          <button class="chip" type="button" data-dev="mac">Mac</button>
+    <section class="pricing-header">
+      <h2>Тарифные планы доступа</h2>
+      <p style="color: var(--muted);">Выберите необходимый период подписки на информационно-образовательную платформу</p>
+    </section>
+
+    <section class="pricing-grid">
+      <!-- Тариф 1 -->
+      <div class="plan-card">
+        <div class="plan-title">Базовый модуль</div>
+        <div class="plan-price">150 ₽ <span>/ 1 месяц</span></div>
+        <ul class="plan-features">
+          <li>Полный доступ к платформе Ai2Edu на 30 дней</li>
+          <li>Методические материалы по пространственному AI</li>
+          <li>Цифровой ключ идентификации исследователя</li>
+          <li>Техническая поддержка по платформе</li>
+        </ul>
+        <div class="widget-container">
+          <iframe title="lava.top" style="border: none" width="320" height="54" src="https://widget.lava.top/b1ae58bd-5527-4c21-882d-a58289b80a5a"></iframe>
         </div>
-        <p class="chip-note" id="chipNote"></p>
-        <a class="dl" id="dlBtn" href="#" target="_blank" rel="noopener"></a>
-        <div class="dl-alt" id="dlAlt"></div>
       </div>
 
-      <div class="price-row">
-        <span class="price" id="priceNum">199 ₽</span>
-        <span class="price-per" id="pricePer">в месяц</span>
-      </div>
-
-      <!-- Виджет оплаты Lava.top -->
-      <div class="widget-box">
-        <iframe title="lava.top" style="border: none" width="320" height="54" src="https://widget.lava.top/78305c01-a71e-403d-9fc0-91ac6da4f559"></iframe>
-      </div>
-
-      <div class="under-btn">Платёж открывается в приложении банка. Ссылка появится на этой же странице и продублируется на почту.</div>
-    </section>
-
-    <section class="sec">
-      <h2>Как это проходит</h2>
-      <ol class="steps">
-        <li><b>Оплата через СБП</b><span>Открывается приложение банка, платёж занимает полминуты. Данные карты никуда не вводятся.</span></li>
-        <li><b>Ссылка на этом же экране</b><span>Страница показывает ссылку-подписку и кнопку подключения. Копия уходит на почту.</span></li>
-        <li><b>Одно нажатие в приложении</b><span>Приложение само подтягивает список серверов по ссылке и обновляет его дальше без вашего участия.</span></li>
-      </ol>
-    </section>
-
-    <section class="sec">
-      <h2>Сроки и цены</h2>
-      <div class="plans">
-        <button class="plan plan-pick" type="button" data-plan="month" data-price="199 ₽" data-per="в месяц">
-          <span class="plan-name">Месяц<span class="plan-note">попробовать</span></span>
-          <span class="plan-price">199 ₽</span>
-        </button>
-        <button class="plan" type="button" data-plan="quarter" data-price="499 ₽" data-per="за три месяца">
-          <span class="plan-name">Три месяца<span class="plan-note">166 ₽ в месяц</span></span>
-          <span class="plan-price">499 ₽</span>
-        </button>
-        <button class="plan" type="button" data-plan="year" data-price="1 490 ₽" data-per="за год">
-          <span class="plan-name">Год<span class="plan-note">124 ₽ в месяц</span></span>
-          <span class="plan-price">1 490 ₽</span>
-        </button>
-      </div>
-    </section>
-
-    <section class="sec">
-      <h2>Вопросы</h2>
-      <details>
-        <summary>Сколько устройств на одну подписку?</summary>
-        <p>Три, одновременно. Ноутбук, телефон и планшет работают по одной и той же ссылке.</p>
-      </details>
-      <details>
-        <summary>Что, если сервер перестанет отвечать?</summary>
-        <p>Список серверов обновляется по ссылке автоматически — приложение переключится само. Если этого не произошло, напишите нам, ответим в течение дня и продлим срок на дни простоя.</p>
-      </details>
-      <details>
-        <summary>Можно вернуть деньги?</summary>
-        <p>В первые семь дней возвращаем полностью и без объяснений. Позже — за неиспользованные месяцы.</p>
-      </details>
-      <details>
-        <summary>Зачем нужна почта?</summary>
-        <p>Только чтобы продублировать ссылку и предупредить об окончании срока. Рассылок не будет.</p>
-      </details>
-      <details>
-        <summary>В каком приложении это работает?</summary>
-        <p>Happ, Streisand, v2rayNG, Nekoray — смотря какое устройство. Все бесплатные, ссылка на нужное приходит вместе с подпиской.</p>
-      </details>
-    </section>
-
-    <section class="sec docs">
-      <h2>Документы</h2>
-      <details id="terms">
-        <summary>Условия обслуживания</summary>
-        <div class="doc">
-          <p><b>Что вы покупаете.</b> Доступ к сервису на срок выбранного тарифа. Одна подписка работает на трёх устройствах одновременно.</p>
-          <p><b>Как вы его получаете.</b> Ссылка-подписка показывается сразу после оплаты и дублируется на указанную почту. Срок считается с момента оплаты.</p>
-          <p><b>Возврат.</b> В первые семь дней возвращаем всю сумму по запросу в поддержку, без объяснения причин. После седьмого дня — за полные неиспользованные месяцы. Деньги уходят тем же способом, которым пришли, в течение десяти рабочих дней.</p>
-          <p><b>Если что-то не работает.</b> Выдаём новую конфигурацию и продлеваем срок на количество дней простоя. Отвечаем в течение суток.</p>
-          <p><b>За что мы не отвечаем.</b> За работу сторонних сервисов и их правила, за скорость вашего домашнего интернета и за содержание материалов, к которым вы обращаетесь.</p>
-          <p><b>Изменения.</b> Цены действующих подписок не меняются до конца оплаченного срока.</p>
+      <!-- Тариф 2 -->
+      <div class="plan-card popular">
+        <div class="badge">Выбор специалистов</div>
+        <div class="plan-title">Профессиональный</div>
+        <div class="plan-price">400 ₽ <span>/ 3 месяца</span></div>
+        <ul class="plan-features">
+          <li>Полный доступ к платформе Ai2Edu на 90 дней</li>
+          <li>Приоритетный доступ ко всем обновлениям базы</li>
+          <li>Цифровой ключ исследователя с расширенной квотой</li>
+          <li>Прямой канал консультаций по материалам</li>
+        </ul>
+        <div class="widget-container">
+          <iframe title="lava.top" style="border: none" width="320" height="54" src="https://widget.lava.top/222eedf2-bbf6-4f69-8b78-579de036a93e"></iframe>
         </div>
-      </details>
-      <details id="privacy">
-        <summary>Обработка данных</summary>
-        <div class="doc">
-          <p><b>Что собираем.</b> Только адрес электронной почты, который вы вводите при оплате.</p>
-          <p><b>Зачем.</b> Отправить ссылку-подписку, предупредить об окончании срока и ответить вам в поддержке. Рассылок не отправляем.</p>
-          <p><b>Кому передаём.</b> Никому, кроме платёжного сервиса — ему адрес нужен для чека. Он же видит сумму и дату платежа.</p>
-          <p><b>Сколько храним.</b> Пока подписка активна и полгода после её окончания, чтобы можно было восстановить доступ.</p>
-          <p><b>Журналы подключений.</b> Мы не храним историю ваших подключений и посещённых адресов.</p>
-          <p><b>Удаление.</b> Напишите в поддержку — удалим адрес и всё, что с ним связано, в течение трёх дней.</p>
-        </div>
-      </details>
+      </div>
     </section>
+  </main>
 
-  </div>
+  <footer>
+    <div class="footer-content">
+      <div class="footer-info">
+        <p><strong>Ai2Edu Research & Education Platform</strong></p>
+        <p>Предоставление информационных и образовательных цифровых материалов.</p>
+        <p>Поддержка: <a href="https://t.me/your_telegram_bot" style="color: #3fb950; text-decoration: none;">@Ai2Edu_Support</a></p>
+        <p>Email для обращений: support@ai2edu.tech</p>
+        <p style="margin-top: 0.8rem; font-size: 0.8rem;">© 2026 Ai2Edu. Все права защищены.</p>
+      </div>
 
-  <!-- ================= экран после оплаты: ?ok=1 ================= -->
-  <div class="done">
-    <h1>Оплата прошла</h1>
-    <p class="lead">Подписка активна. Копию ссылки отправили на почту.</p>
-
-    <div class="keybox">
-      <div class="keybox-top"><span class="dot"></span> действует до <span id="until">13 октября 2026</span></div>
-      <div class="keyline" id="userKey">https://sub.eu-cloud.net/s/a7f2c0e491bd4c3a8f106d2be5c47a19</div>
+      <div class="footer-links">
+        <p style="font-weight: 600; color: var(--text-bright);">Юридическая информация</p>
+        <a onclick="openModal('modal-terms')">Условия оказания услуг (Оферта)</a>
+        <a onclick="openModal('modal-privacy')">Политика конфиденциальности</a>
+        <a onclick="openModal('modal-delivery')">Доставка и правила возврата</a>
+      </div>
     </div>
-
-    <div class="stack">
-      <a class="btn" id="oneClick" href="#">Подключить в 1 клик</a>
-      <button class="btn btn-quiet" id="copyBtn" type="button">Скопировать ссылку-подписку</button>
-    </div>
-    <div class="copied" id="copied">Ссылка скопирована</div>
-
-    <div class="apps">
-      <h3>Если приложение ещё не установлено</h3>
-      <ul>
-        <li>iPhone, iPad <a href="#" data-app="ios">Happ</a></li>
-        <li>Android <a href="#" data-app="android">Happ</a></li>
-        <li>Windows <a href="#" data-app="win">Nekoray</a></li>
-        <li>Mac <a href="#" data-app="mac">Streisand</a></li>
-      </ul>
-    </div>
-
-    <div style="margin-top:24px">
-      <a class="btn btn-quiet js-support" href="#">Написать в поддержку</a>
-    </div>
-  </div>
-
-  <footer class="foot">
-    <a href="#terms">Условия</a><a href="#privacy">Обработка данных</a><a class="js-support" href="#">Поддержка</a>
-    <p id="seller">Технологии для образования. Вопросы, продление и возвраты — через поддержку.</p>
   </footer>
 
-</div>
+  <!-- Модалка: Оферта -->
+  <div id="modal-terms" class="modal">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModals()">&times;</button>
+      <h3>Публичная оферта на оказание информационных услуг</h3>
+      <p>Настоящий документ является официальным предложением платформы Ai2Edu заключить договор на получение доступа к цифровым образовательным и аналитическим материалам платформы.</p>
+      <p>1. <strong>Предмет договора:</strong> Исполнитель обязуется предоставить Заказчику доступ к информационно-образовательной платформе Ai2Edu на оплаченный срок согласно выбранному тарифу.</p>
+      <p>2. <strong>Порядок расчетов:</strong> Оплата производится в безналичном порядке через платежного агрегатора в полном объеме до момента предоставления доступа.</p>
+      <p>3. <strong>Исполнение обязательств:</strong> Обязательства Исполнителя считаются исполненными в полном объеме с момента отправки уникального ключа/ссылки авторизации к платформе в адрес Заказчика.</p>
+    </div>
+  </div>
 
-<script>
-(function () {
-  /* Ссылки на виджеты Lava.top */
-  var WIDGET_URLS = {
-    month: 'https://widget.lava.top/78305c01-a71e-403d-9fc0-91ac6da4f559',
-    quarter: 'https://widget.lava.top/222eedf2-bbf6-4f69-8b78-579de036a93e',
-    year: 'https://widget.lava.top/b1ae58bd-5527-4c21-882d-a58289b80a5a'
-  };
+  <!-- Модалка: Конфиденциальность -->
+  <div id="modal-privacy" class="modal">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModals()">&times;</button>
+      <h3>Политика обработки персональных данных</h3>
+      <p>Платформа Ai2Edu уважает вашу конфиденциальность и обрабатывает только минимально необходимые технические данные:</p>
+      <ul>
+        <li>Идентификатор транзакции и контактный адрес/Telegram для отправки цифрового ключа доступа;</li>
+        <li>Технические журналы обращения к серверу для обеспечения стабильности сервиса.</li>
+      </ul>
+      <p>Данные не передаются третьим лицам, за исключением случаев, предусмотренных действующим законодательством.</p>
+    </div>
+  </div>
 
-  /* Контакт нейтральной поддержки */
-  var SUPPORT_URL = 'https://t.me/ai2edu_bot';
+  <!-- Модалка: Доставка и возврат -->
+  <div id="modal-delivery" class="modal">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModals()">&times;</button>
+      <h3>Правила доставки и возврата</h3>
+      <p><strong>Доставка цифрового товара:</strong> Предоставление доступа осуществляется в автоматическом режиме сразу после успешной обработки платежа через защищенный шлюз. Цифровые идентификаторы передаются на контактный аккаунт или отображаются на странице оформления.</p>
+      <p><strong>Возврат средств:</strong> Согласно законодательству о защите прав потребителей, возврат за оказанные информационные услуги в цифровом виде после фактического предоставления доступа не производится, если иное не обусловлено технической невозможностью оказания услуги по вине Исполнителя.</p>
+    </div>
+  </div>
 
-  Array.prototype.forEach.call(document.querySelectorAll('.js-support'), function (a) {
-    a.href = SUPPORT_URL;
-    a.target = '_blank';
-    a.rel = 'noopener';
-  });
-
-  function openDoc() {
-    var id = location.hash.slice(1);
-    if (id !== 'terms' && id !== 'privacy') return;
-    var d = document.getElementById(id);
-    if (!d) return;
-    d.open = true;
-    d.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }
-  window.addEventListener('hashchange', openDoc);
-  openDoc();
-
-  var qs = new URLSearchParams(location.search);
-  var plan = 'month';
-  var widgetFrame = document.getElementById('lavaWidget');
-
-  /* --- выбор тарифа и переключение ссылки виджета --- */
-  var plans = document.querySelectorAll('.plan');
-  Array.prototype.forEach.call(plans, function (b) {
-    b.addEventListener('click', function () {
-      plan = b.dataset.plan;
-      Array.prototype.forEach.call(plans, function (x) { x.classList.remove('plan-pick'); });
-      b.classList.add('plan-pick');
-      document.getElementById('priceNum').textContent = b.dataset.price;
-      document.getElementById('pricePer').textContent = b.dataset.per;
-      
-      if (widgetFrame && WIDGET_URLS[plan]) {
-        widgetFrame.src = WIDGET_URLS[plan];
-      }
-
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-  });
-
-  /* --- экран после оплаты: ?ok=1&sub=...&until=... --- */
-  if (qs.get('ok')) {
-    document.body.classList.add('paid');
-    var sub = qs.get('sub');
-    var until = qs.get('until');
-    if (sub) document.getElementById('userKey').textContent = sub;
-    if (until) document.getElementById('until').textContent = until;
-    var link = document.getElementById('userKey').textContent.trim();
-    document.getElementById('oneClick').href =
-      'happ://add/' + encodeURIComponent(link);
-    window.scrollTo(0, 0);
-  }
-
-  /* --- копирование --- */
-  var copyBtn = document.getElementById('copyBtn');
-  if (copyBtn) {
-    copyBtn.addEventListener('click', function () {
-      var text = document.getElementById('userKey').textContent.trim();
-      var note = document.getElementById('copied');
-      var show = function () {
-        note.classList.add('on');
-        copyBtn.textContent = 'Готово';
-        setTimeout(function () {
-          note.classList.remove('on');
-          copyBtn.textContent = 'Скопировать ссылку-подписку';
-        }, 2200);
-      };
-      if (navigator.clipboard) {
-        navigator.clipboard.writeText(text).then(show, show);
-      } else {
-        var t = document.createElement('textarea');
-        t.value = text;
-        document.body.appendChild(t);
-        t.select();
-        document.execCommand('copy');
-        document.body.removeChild(t);
-        show();
-      }
-    });
-  }
-
-  /* --- выбор устройства --- */
-  var DEVICES = {
-    ios: {
-      note: 'Бесплатное приложение <b>Happ</b> из App Store. Подписка добавляется одним нажатием, настраивать ничего не нужно.',
-      url: 'https://apps.apple.com/us/app/happ-proxy-utility/id6504287215',
-      label: 'Скачать в App Store'
-    },
-    android: {
-      note: 'Бесплатное приложение <b>Happ</b>. Ссылка-подписка вставляется из буфера обмена.',
-      url: 'https://play.google.com/store/apps/details?id=com.happproxy',
-      label: 'Скачать в Google Play',
-      alt: { url: 'https://github.com/2dust/v2rayNG/releases', text: 'Или v2rayNG на GitHub' }
-    },
-    win: {
-      note: 'Программа <b>Nekoray</b>. Работает сразу после распаковки, установка не требуется.',
-      url: 'https://github.com/MatsuriDayo/nekoray/releases',
-      label: 'Скачать на GitHub'
-    },
-    mac: {
-      note: 'Бесплатное приложение <b>Streisand</b> из Mac App Store. Подписка добавляется одним нажатием.',
-      url: 'https://apps.apple.com/us/app/streisand/id6450534064',
-      label: 'Скачать в Mac App Store'
+  <script>
+    function openModal(id) {
+      closeModals();
+      document.getElementById(id).style.display = 'flex';
     }
-  };
-
-  var chips = document.querySelectorAll('.chip');
-  var chipNote = document.getElementById('chipNote');
-  var dlBtn = document.getElementById('dlBtn');
-  var dlAlt = document.getElementById('dlAlt');
-
-  function pickDevice(key) {
-    var d = DEVICES[key];
-    Array.prototype.forEach.call(chips, function (c) {
-      c.classList.toggle('is-on', c.dataset.dev === key);
-    });
-    chipNote.innerHTML = d.note;
-    dlBtn.href = d.url;
-    dlBtn.textContent = d.label;
-    dlAlt.innerHTML = d.alt
-      ? '<a href="' + d.alt.url + '" target="_blank" rel="noopener">' + d.alt.text + '</a>'
-      : '';
-  }
-
-  Array.prototype.forEach.call(chips, function (c) {
-    c.addEventListener('click', function () { pickDevice(c.dataset.dev); });
-  });
-
-  if (chipNote) {
-    var ua = navigator.userAgent;
-    pickDevice(
-      /iPhone|iPad|iPod/.test(ua) ? 'ios'
-      : /Android/.test(ua) ? 'android'
-      : /Mac OS X/.test(ua) ? 'mac'
-      : /Windows/.test(ua) ? 'win' : 'ios'
-    );
-  }
-
-  /* те же адреса на экране после оплаты */
-  Array.prototype.forEach.call(document.querySelectorAll('.apps a'), function (a) {
-    var d = DEVICES[a.dataset.app];
-    if (d) {
-      a.href = d.url;
-      a.target = '_blank';
-      a.rel = 'noopener';
+    function closeModals() {
+      document.querySelectorAll('.modal').forEach(m => m.style.display = 'none');
     }
-  });
-
-})();
-</script>
+    window.onclick = function(e) {
+      if (e.target.classList.contains('modal')) {
+        closeModals();
+      }
+    }
+  </script>
 </body>
 </html>
