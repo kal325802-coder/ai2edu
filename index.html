@@ -13,13 +13,14 @@
 <link rel="apple-touch-icon" href="./apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{
   --ink:#16162E;
   --paper:#ECEAF3;
   --surface:#F7F6FB;
-  --line:#C9C5DA;
+  --line:#D5D2E0;
+  --line-strong:#C4C0D6;
   --muted:#56546F;
   --action:#E8B23A;
   --action-press:#D79F22;
@@ -34,8 +35,10 @@ body{
   color:var(--ink);
   font-family:"Golos Text",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
   font-size:16px;
-  line-height:1.45;
+  line-height:1.5;
+  letter-spacing:.005em;
   -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
 }
 .wrap{
   max-width:480px;
@@ -55,43 +58,45 @@ a{color:inherit}
   padding:16px var(--gutter) 14px;
   border-bottom:1px solid var(--line);
 }
-.brand{font-weight:900;font-size:18px;letter-spacing:-.02em}
+.brand{font-weight:600;font-size:17px;letter-spacing:.01em}
 .bar-note{font-size:13px;color:var(--muted)}
 
 .hero{padding:34px var(--gutter) 28px}
 .hero h1{
-  font-weight:900;
-  font-size:28px;
-  line-height:1.15;
-  letter-spacing:-.035em;
-  margin-bottom:14px;
+  font-weight:700;
+  font-size:27px;
+  line-height:1.22;
+  letter-spacing:-.01em;
+  margin-bottom:15px;
 }
-.hero .lead{color:var(--muted);font-size:15.5px;max-width:38ch}
+.hero .lead{color:var(--muted);font-size:15.5px;line-height:1.55;max-width:38ch}
 
 .facts{margin:20px 0 4px;list-style:none}
 .facts li{
-  display:grid;
-  grid-template-columns:14px 1fr;
-  gap:10px;
-  padding:8px 0;
+  position:relative;
+  padding:9px 0 9px 20px;
   font-size:15px;
+  line-height:1.5;
 }
+.facts b{font-weight:600}
 .facts li::before{
   content:"";
+  position:absolute;
+  left:1px;
+  top:16px;
   width:6px;height:6px;
   border-radius:50%;
-  background:var(--ink);
-  margin-top:8px;
+  background:var(--action);
 }
 
 .author-box{
-  margin:20px 0;
-  padding:14px 16px;
-  border:1px solid var(--line);
+  margin:22px 0;
+  padding:15px 16px;
+  border:1px solid var(--line-strong);
   border-radius:var(--radius);
   background:var(--surface);
 }
-.author-box h3{font-size:15px;font-weight:700;margin-bottom:6px}
+.author-box h3{font-size:15px;font-weight:600;letter-spacing:.01em;margin-bottom:6px}
 .author-box p{font-size:14px;color:var(--muted);line-height:1.4}
 
 .keybox{
@@ -120,7 +125,7 @@ a{color:inherit}
 }
 
 .devices{margin:24px 0 22px}
-.devices h3{font-weight:600;font-size:15px;margin-bottom:10px}
+.devices h3{font-weight:600;font-size:14px;letter-spacing:.02em;text-transform:uppercase;color:var(--muted);margin-bottom:11px}
 .chips{display:flex;flex-wrap:wrap;gap:8px}
 .chip{
   padding:9px 14px;
@@ -136,8 +141,8 @@ a{color:inherit}
 .chip.is-on{background:var(--ink);border-color:var(--ink);color:var(--paper)}
 .chip-note{
   margin-top:12px;
-  padding:13px 15px;
-  border:1px solid var(--line);
+  padding:14px 15px;
+  border:1px solid var(--line-strong);
   border-radius:var(--radius);
   background:var(--surface);
   color:var(--muted);
@@ -159,7 +164,7 @@ a{color:inherit}
 .dl-alt{margin-top:10px;font-size:13.5px;color:var(--muted)}
 .dl-alt a{color:var(--muted)}
 .price-row{display:flex;align-items:baseline;gap:9px;margin-bottom:16px}
-.price{font-weight:900;font-size:30px;letter-spacing:-.03em}
+.price{font-weight:700;font-size:29px;letter-spacing:-.01em}
 .price-per{color:var(--muted);font-size:15px}
 
 .widget-box{
@@ -184,7 +189,8 @@ a{color:inherit}
   color:var(--ink);
   font-family:inherit;
   font-weight:600;
-  font-size:17px;
+  font-size:16.5px;
+  letter-spacing:.01em;
   text-align:center;
   text-decoration:none;
   cursor:pointer;
@@ -195,7 +201,7 @@ a{color:inherit}
 .under-btn{margin-top:11px;font-size:13.5px;color:var(--muted);text-align:center}
 
 .sec{padding:30px var(--gutter);border-top:1px solid var(--line)}
-.sec h2{font-weight:800;font-size:21px;letter-spacing:-.02em;margin-bottom:18px}
+.sec h2{font-weight:600;font-size:20px;letter-spacing:-.005em;margin-bottom:18px}
 
 .steps{list-style:none;counter-reset:s}
 .steps li{
@@ -207,10 +213,10 @@ a{color:inherit}
   border-bottom:1px solid var(--line);
 }
 .steps li:last-child{border-bottom:none;padding-bottom:0}
-.steps li::before{content:counter(s);font-weight:800;font-size:15px;color:var(--muted);padding-top:1px}
+.steps li::before{content:counter(s);font-weight:600;font-size:15px;color:var(--muted);padding-top:1px}
 .steps b,.steps span{grid-column:2}
 .steps b{display:block;font-weight:600;font-size:16px;margin-bottom:3px}
-.steps span{color:var(--muted);font-size:14.5px}
+.steps span{color:var(--muted);font-size:14.5px;line-height:1.5}
 
 .plans{display:grid;gap:10px}
 .plan{
@@ -228,10 +234,10 @@ a{color:inherit}
   text-align:left;
   cursor:pointer;
 }
-.plan-pick{border-color:var(--ink);border-width:2px;padding:14px 15px}
+.plan-pick{border-color:var(--action-press);border-width:2px;padding:14px 15px}
 .plan-name{font-weight:600;font-size:16px}
 .plan-note{display:block;color:var(--muted);font-size:13.5px;font-weight:400;margin-top:2px}
-.plan-price{font-weight:800;font-size:19px;white-space:nowrap;letter-spacing:-.02em}
+.plan-price{font-weight:600;font-size:19px;white-space:nowrap;letter-spacing:-.005em}
 
 details{
   border-bottom:1px solid var(--line);
@@ -241,8 +247,8 @@ details{
 summary{
   padding:16px 28px 16px 0;
   font-weight:500;
-  font-size:16px;
-  line-height:1.4;
+  font-size:15.5px;
+  line-height:1.45;
   cursor:pointer;
   list-style:none;
   position:relative;
@@ -267,7 +273,7 @@ details[open] summary::after{
   top:26px;
 }
 details:last-of-type{border-bottom:none}
-details p{padding:0 0 16px;color:var(--muted);font-size:14.5px}
+details p{padding:0 0 16px;color:var(--muted);font-size:14.5px;line-height:1.55}
 
 .docs{padding-bottom:24px}
 .doc{padding:2px 0 18px;color:var(--muted);font-size:14.5px}
@@ -282,13 +288,13 @@ details p{padding:0 0 16px;color:var(--muted);font-size:14.5px}
 .done{display:none;padding:34px var(--gutter) 30px}
 body.paid .done{display:block}
 body.paid .sale{display:none}
-.done h1{font-weight:900;font-size:29px;letter-spacing:-.03em;margin-bottom:10px}
+.done h1{font-weight:700;font-size:26px;letter-spacing:-.01em;margin-bottom:10px}
 .done .lead{color:var(--muted);margin-bottom:22px}
 .copied{margin-top:11px;font-size:13.5px;text-align:center;visibility:hidden}
 .copied.on{visibility:visible}
 .stack{display:grid;gap:10px;margin-top:4px}
 .apps{margin-top:26px}
-.apps h3{font-weight:600;font-size:16px;margin-bottom:10px}
+.apps h3{font-weight:600;font-size:14px;letter-spacing:.02em;text-transform:uppercase;color:var(--muted);margin-bottom:11px}
 .apps li{list-style:none;padding:10px 0;border-bottom:1px solid var(--line);font-size:15px;display:flex;justify-content:space-between;gap:10px}
 .apps li span{color:var(--muted);font-size:14px}
 .apps a{font-weight:500}
@@ -296,7 +302,7 @@ body.paid .sale{display:none}
 @media (min-width:560px){
   body{background:var(--surface)}
   .wrap{border-left:1px solid var(--line);border-right:1px solid var(--line)}
-  .hero h1{font-size:32px}
+  .hero h1{font-size:30px}
 }
 @media (prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important}
