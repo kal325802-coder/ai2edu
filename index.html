@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>AI2Edu Connect — защищённый доступ к учебным платформам и нейросетям</title>
-<meta name="description" content="Выделенное безопасное подключение для образовательных задач, пространственных исследований и генерации контента.">
+<title>AI2Edu Connect — защищённый сетевой доступ к вычислительным средам AI</title>
+<meta name="description" content="Сервис защищённого сетевого туннелирования для исследователей, инженеров и студентов: стабильный доступ к AI-моделям, генеративным пайплайнам и базам данных.">
 <meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#16162E">
 <link rel="icon" href="./favicon.ico" sizes="any">
@@ -61,12 +61,12 @@ a{color:inherit}
 .hero{padding:34px var(--gutter) 28px}
 .hero h1{
   font-weight:900;
-  font-size:30px;
-  line-height:1.1;
+  font-size:28px;
+  line-height:1.15;
   letter-spacing:-.035em;
   margin-bottom:14px;
 }
-.hero .lead{color:var(--muted);font-size:16px;max-width:36ch}
+.hero .lead{color:var(--muted);font-size:15.5px;max-width:38ch}
 
 .facts{margin:20px 0 4px;list-style:none}
 .facts li{
@@ -83,6 +83,16 @@ a{color:inherit}
   background:var(--ink);
   margin-top:8px;
 }
+
+.author-box{
+  margin:20px 0;
+  padding:14px 16px;
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  background:var(--surface);
+}
+.author-box h3{font-size:15px;font-weight:700;margin-bottom:6px}
+.author-box p{font-size:14px;color:var(--muted);line-height:1.4}
 
 .keybox{
   margin:24px 0 22px;
@@ -238,12 +248,8 @@ summary{
   position:relative;
   outline:none;
 }
-summary:focus, summary:focus-visible{
-  outline:none;
-}
-summary::-webkit-details-marker{
-  display:none;
-}
+summary:focus, summary:focus-visible{outline:none}
+summary::-webkit-details-marker{display:none}
 summary::after{
   content:"";
   position:absolute;
@@ -260,29 +266,17 @@ details[open] summary::after{
   transform:rotate(-135deg);
   top:26px;
 }
-details:last-of-type{
-  border-bottom:none;
-}
-details p{
-  padding:0 0 16px;
-  color:var(--muted);
-  font-size:14.5px;
-}
+details:last-of-type{border-bottom:none}
+details p{padding:0 0 16px;color:var(--muted);font-size:14.5px}
 
-.docs{
-  padding-bottom:24px;
-}
-.doc{
-  padding:2px 0 18px;
-  color:var(--muted);
-  font-size:14.5px;
-}
+.docs{padding-bottom:24px}
+.doc{padding:2px 0 18px;color:var(--muted);font-size:14.5px}
 .doc p{padding:0 0 11px}
 .doc p:last-child{padding-bottom:0}
 .doc b{color:var(--ink);font-weight:600}
 
 .foot{padding:24px var(--gutter) 34px;border-top:1px solid var(--line);color:var(--muted);font-size:13px}
-.foot a{display:inline-block;margin-right:14px;margin-bottom:7px}
+.foot a{display:inline-block;margin-right:14px;margin-bottom:7px;cursor:pointer}
 .foot p{margin-top:10px;max-width:44ch}
 
 .done{display:none;padding:34px var(--gutter) 30px}
@@ -302,7 +296,7 @@ body.paid .sale{display:none}
 @media (min-width:560px){
   body{background:var(--surface)}
   .wrap{border-left:1px solid var(--line);border-right:1px solid var(--line)}
-  .hero h1{font-size:34px}
+  .hero h1{font-size:32px}
 }
 @media (prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important}
@@ -321,17 +315,22 @@ body.paid .sale{display:none}
   <div class="sale">
 
     <section class="hero">
-      <h1>Инструменты и рабочие среды для исследователей AI</h1>
-      <p class="lead">Выделенный безопасный доступ к исследовательской инфраструктуре, образовательным материалам и сервисам генерации контента для исследователей и специалистов.</p>
+      <h1>Защищённый доступ к вычислительным средам и AI-моделям</h1>
+      <p class="lead">Специализированный сетевой сервис (туннелирование и маршрутизация сетевого трафика) для исследователей, преподавателей и разработчиков, работающих с генеративным AI и удалёнными серверами данных.</p>
+
+      <div class="author-box">
+        <h3>О проекте и авторе</h3>
+        <p>Платформа создана экспертами в области пространственного AI и архитектурного проектирования. Сервис обеспечивает стабильный защищённый канал связи для непрерывного обучения, проведения воркшопов и работы с зарубежными AI-API без разрывов сессий.</p>
+      </div>
 
       <ul class="facts">
-        <li>Стабильное соединение: оптимизировано под непрерывные сессии вычислений, передачу аналитических данных и работу с generative-моделями без прерывания сессий.</li>
-        <li>Защита рабочих материалов: криптографическое шифрование защищает ваши промпты, конфигурации сценариев и рабочие данные в любых сетях.</li>
-        <li>Быстрый старт на 3 устройствах: единый ключ доступа с мгновенным развертыванием на рабочей станции, ноутбуке или планшете.</li>
+        <li><b>Что получает покупатель:</b> доступ к выделенному зашифрованному прокси/туннелю (VLESS/TLS) на оплаченный период для работы с API и веб-интерфейсами.</li>
+        <li><b>Стабильность сессий:</b> удержание контекста при потоковой генерации данных и рендеринге тяжелых нейросетевых моделей.</li>
+        <li><b>Подключение до 3 устройств:</b> единая строка конфигурации для ноутбука, смартфона и планшета.</li>
       </ul>
 
       <div class="devices">
-        <h3>Поддерживаемые платформы</h3>
+        <h3>Поддерживаемые клиентские приложения</h3>
         <div class="chips">
           <button class="chip is-on" type="button" data-dev="ios">iPhone, iPad</button>
           <button class="chip" type="button" data-dev="android">Android</button>
@@ -353,15 +352,15 @@ body.paid .sale{display:none}
         <iframe id="lavaWidget" title="lava.top" style="border: none" width="320" height="54" src="https://widget.lava.top/78305c01-a71e-403d-9fc0-91ac6da4f559"></iframe>
       </div>
 
-      <div class="under-btn">Платёж через защищенный шлюз. Цифровой ключ активации появится на экране сразу после оплаты и будет отправлен на почту.</div>
+      <div class="under-btn">Оплата картой или через СБП. Цифровой ключ активации выдаётся мгновенно после подтверждения транзакции и дублируется на email.</div>
     </section>
 
     <section class="sec">
-      <h2>Порядок подключения</h2>
+      <h2>Порядок получения услуги</h2>
       <ol class="steps">
-        <li><b>Безопасная оплата</b><span>Проведение платежа через СБП или банковскую карту в официальном платёжном шлюзе.</span></li>
-        <li><b>Мгновенная выдача ключа</b><span>На экране отображается персонализированная строка конфигурации и ссылка на рабочую среду.</span></li>
-        <li><b>Импорт конфигурации</b><span>Добавление параметров подключения в клиентское приложение в один клик без ручного ввода настроек.</span></li>
+        <li><b>Оплата в шлюзе</b><span>Проведение безопасного платежа через банк или СБП.</span></li>
+        <li><b>Выдача конфигурации</b><span>Экран моментально показывает уникальный ключ-подписку для подключения.</span></li>
+        <li><b>Импорт в клиент</b><span>Вставка ссылки в бесплатное приложение для маршрутизации трафика (Happ, Nekoray, Streisand) в один клик.</span></li>
       </ol>
     </section>
 
@@ -386,57 +385,67 @@ body.paid .sale{display:none}
     <section class="sec">
       <h2>Частые вопросы</h2>
       <details>
-        <summary>Сколько рабочих мест включено в тариф?</summary>
-        <p>До трёх устройств одновременно. Вы можете использовать одну конфигурацию на рабочем компьютере, ноутбуке и мобильном устройстве.</p>
+        <summary>Что именно я получаю после оплаты?</summary>
+        <p>Вы получаете цифровую подписку (уникальный URL-ключ), содержащий параметры безопасного подключения к серверам маршрутизации Ai2Edu для работы с удалёнными сервисами и моделями.</p>
       </details>
       <details>
-        <summary>Как обеспечивается стабильность доступа?</summary>
-        <p>Маршрутизация и список рабочих узлов платформы синхронизируются автоматически. При технических работах на узле подключение плавно переключается на резервный сервер.</p>
+        <summary>Сколько устройств поддерживается?</summary>
+        <p>До трёх устройств одновременно. Вы можете использовать ключ на компьютере, телефоне и планшете.</p>
       </details>
       <details>
         <summary>Условия возврата средств</summary>
-        <p>В течение 7 дней с момента оформления заказа средства возвращаются по первому запросу в службу поддержки, если сервис вам не подошел.</p>
+        <p>В течение 7 дней с момента покупки мы производим 100% возврат средств по обращению в поддержку без дополнительных условий. После 7 дней — возврат за неиспользованные полные месяцы.</p>
       </details>
       <details>
         <summary>Для чего запрашивается email?</summary>
-        <p>Email используется исключительно для доставки параметров конфигурации и чека об оплате. Сервис не отправляет спам и рекламные рассылки.</p>
-      </details>
-      <details>
-        <summary>Какое клиентское ПО используется?</summary>
-        <p>Платформа работает со стандартным открытым и бесплатным программным обеспечением для безопасных сетевых подключений. Ссылки на проверенные сборки доступны в инструкциях.</p>
+        <p>Email необходим только для отправки чека и резервной копии конфигурационного ключа.</p>
       </details>
     </section>
 
     <section class="sec docs">
-      <h2>Документы</h2>
+      <h2>Документация</h2>
+      
+      <!-- Оферта -->
       <details id="terms">
-        <summary>Условия обслуживания (Публичная оферта)</summary>
+        <summary>Публичная оферта (Пользовательское соглашение)</summary>
         <div class="doc">
-          <p><b>Предмет соглашения.</b> Предоставление цифрового доступа к образовательным и исследовательским сетевым мощностям платформы Ai2Edu на выбранный срок подписки. Одна подписка рассчитана на использование до трех личных устройств пользователя.</p>
-          <p><b>Порядок предоставления.</b> Уникальная конфигурационная строка и инструкции отображаются в окне браузера сразу после успешной обработки платежа и дублируются на указанный электронный адрес.</p>
-          <p><b>Политика возвратов.</b> В первые 7 дней с момента оплаты возврат осуществляется в полном объеме по обращению в поддержку без дополнительных условий. По истечении 7 дней возможен перерасчет за полные неиспользованные месяцы периода.</p>
-          <p><b>Техническая поддержка.</b> При возникновении вопросов по настройке параметров соединения специалисты поддержки предоставляют консультации и актуальные конфигурации в течение 24 часов.</p>
-          <p><b>Ограничение ответственности.</b> Исполнитель обеспечивает исправность предоставляемых цифровых конфигураций, но не несет ответственности за перебои на стороне локального интернет-провайдера пользователя.</p>
+          <p><b>1. Общие положения.</b> Настоящий документ представляет собой официальное предложение сервиса AI2Edu (далее — Исполнитель) заключить договор на оказание цифровых услуг по предоставлению защищённого сетевого доступа к удалённым вычислительным ресурсам.</p>
+          <p><b>2. Предмет договора.</b> Исполнитель предоставляет Заказчику персонализированный цифровой ключ-конфигурацию для сетевой маршрутизации и доступа к серверной инфраструктуре на оплаченный период действия тарифа (1, 3 или 12 месяцев).</p>
+          <p><b>3. Порядок предоставления.</b> Услуга оказывается полностью в электронном виде. Цифровая ссылка доступа формируется автоматически и отображается Заказчику непосредственно после подтверждения оплаты шлюзом, а также направляется на контактный email.</p>
+          <p><b>4. Лимиты.</b> Допускается единовременное использование конфигурации не более чем на 3 (трех) устройствах Заказчика.</p>
+          <p><b>5. Контакты Исполнителя:</b> поддержка в Telegram: <a href="https://t.me/ai2edu_bot" target="_blank" style="color:var(--ink);font-weight:600;">@ai2edu_bot</a>, email: support@ai2edu.tech.</p>
         </div>
       </details>
+
+      <!-- Политика возвратов -->
+      <details id="refund">
+        <summary>Политика возврата денежных средств</summary>
+        <div class="doc">
+          <p><b>1. Безусловный возврат.</b> В течение 7 (семи) календарных дней с момента совершения платежа Заказчик имеет право запросить полный (100%) возврат оплаченных средств без объяснения причин при условии обращения в службу поддержки.</p>
+          <p><b>2. Частичный возврат.</b> По истечении 7 дней возврат осуществляется пропорционально полным неиспользованным календарным месяцам действия подписки.</p>
+          <p><b>3. Сроки перечисления.</b> Возврат производится тем же способом и на те же реквизиты, с которых была произведена оплата, в течение 1–10 рабочих дней в зависимости от банка-эмитента.</p>
+        </div>
+      </details>
+
+      <!-- Конфиденциальность -->
       <details id="privacy">
-        <summary>Политика обработки данных</summary>
+        <summary>Политика обработки персональных данных</summary>
         <div class="doc">
-          <p><b>Собираемые данные.</b> Исключительно контактный адрес электронной почты, указанный при проведении транзакции.</p>
-          <p><b>Цели обработки.</b> Отправка цифрового ключа активации, уведомление об окончании срока действия доступа и связь по техническим заявкам.</p>
-          <p><b>Передача третьим лицам.</b> Данные передаются только уполномоченному платежному шлюзу для фискализации платежа и формирования чека.</p>
-          <p><b>Журналы активности.</b> Сервис не собирает, не анализирует и не хранит историю поисковых запросов и посещений ресурсов пользователем.</p>
-          <p><b>Удаление профиля.</b> По запросу в канал поддержки любые данные об учетной записи безвозвратно удаляются из системы в течение трех рабочих дней.</p>
+          <p><b>1. Категории данных.</b> Сервис обрабатывает исключительно адрес электронной почты, предоставленный при проведении транзакции, и технические параметры сессии соединения.</p>
+          <p><b>2. Цели сбора.</b> Данные используются исключительно для генерации ключа доступа, отправки сервисных уведомлений об окончании подписки и поддержки пользователей.</p>
+          <p><b>3. Конфиденциальность трафика.</b> Сервис AI2Edu не ведет логов посещаемых ресурсов, не анализирует и не сохраняет пользовательский трафик.</p>
+          <p><b>4. Удаление данных.</b> По запросу в Telegram-поддержку учетные данные Заказчика удаляются из базы данных сервиса в течение 24 часов.</p>
         </div>
       </details>
+
     </section>
 
   </div>
 
   <!-- ================= экран после оплаты: ?ok=1 ================= -->
   <div class="done">
-    <h1>Оплата прошла</h1>
-    <p class="lead">Подписка активна. Копию ссылки отправили на почту.</p>
+    <h1>Оплата прошла успешно</h1>
+    <p class="lead">Ваш доступ активирован. Копия конфигурации направлена на указанную почту.</p>
 
     <div class="keybox">
       <div class="keybox-top"><span class="dot"></span> действует до <span id="until">13 октября 2026</span></div>
@@ -450,7 +459,7 @@ body.paid .sale{display:none}
     <div class="copied" id="copied">Ссылка скопирована</div>
 
     <div class="apps">
-      <h3>Если приложение ещё не установлено</h3>
+      <h3>Клиентские программы для импорта</h3>
       <ul>
         <li>iPhone, iPad <a href="#" data-app="ios">Happ</a></li>
         <li>Android <a href="#" data-app="android">Happ</a></li>
@@ -465,22 +474,34 @@ body.paid .sale{display:none}
   </div>
 
   <footer class="foot">
-    <a href="#terms">Условия</a><a href="#privacy">Обработка данных</a><a class="js-support" href="#">Поддержка</a>
-    <p id="seller">Технологии для образования и исследований. Вопросы, продление и возвраты — через поддержку.</p>
+    <a href="#terms" onclick="toggleDoc('terms')">Оферта</a>
+    <a href="#refund" onclick="toggleDoc('refund')">Возвраты</a>
+    <a href="#privacy" onclick="toggleDoc('privacy')">Конфиденциальность</a>
+    <a class="js-support" href="#">Поддержка: @ai2edu_bot</a>
+    <p id="seller">AI2Edu Technologies. Исследовательская инфраструктура и сетевые сервисы. Все права защищены.</p>
   </footer>
 
 </div>
 
 <script>
+/* Функция надёжного открытия юридических документов из футера */
+function toggleDoc(id) {
+  var d = document.getElementById(id);
+  if (d) {
+    d.open = true;
+    setTimeout(function() {
+      d.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }, 100);
+  }
+}
+
 (function () {
-  /* Ссылки на виджеты Lava.top */
   var WIDGET_URLS = {
     month: 'https://widget.lava.top/78305c01-a71e-403d-9fc0-91ac6da4f559',
     quarter: 'https://widget.lava.top/222eedf2-bbf6-4f69-8b78-579de036a93e',
     year: 'https://widget.lava.top/b1ae58bd-5527-4c21-882d-a58289b80a5a'
   };
 
-  /* Контакт нейтральной поддержки */
   var SUPPORT_URL = 'https://t.me/ai2edu_bot';
 
   Array.prototype.forEach.call(document.querySelectorAll('.js-support'), function (a) {
@@ -489,22 +510,10 @@ body.paid .sale{display:none}
     a.rel = 'noopener';
   });
 
-  function openDoc() {
-    var id = location.hash.slice(1);
-    if (id !== 'terms' && id !== 'privacy') return;
-    var d = document.getElementById(id);
-    if (!d) return;
-    d.open = true;
-    d.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }
-  window.addEventListener('hashchange', openDoc);
-  openDoc();
-
   var qs = new URLSearchParams(location.search);
   var plan = 'month';
   var widgetFrame = document.getElementById('lavaWidget');
 
-  /* --- выбор тарифа и переключение ссылки виджета --- */
   var plans = document.querySelectorAll('.plan');
   Array.prototype.forEach.call(plans, function (b) {
     b.addEventListener('click', function () {
@@ -522,7 +531,6 @@ body.paid .sale{display:none}
     });
   });
 
-  /* --- экран после оплаты: ?ok=1&sub=...&until=... --- */
   if (qs.get('ok')) {
     document.body.classList.add('paid');
     var sub = qs.get('sub');
@@ -535,7 +543,6 @@ body.paid .sale{display:none}
     window.scrollTo(0, 0);
   }
 
-  /* --- копирование --- */
   var copyBtn = document.getElementById('copyBtn');
   if (copyBtn) {
     copyBtn.addEventListener('click', function () {
@@ -563,10 +570,9 @@ body.paid .sale{display:none}
     });
   }
 
-  /* --- выбор устройства --- */
   var DEVICES = {
     ios: {
-      note: 'Клиентское приложение для iOS / iPadOS. Конфигурация импортируется в один клик без ручных параметров.',
+      note: 'Клиентское приложение для iOS / iPadOS. Конфигурация туннеля импортируется в один клик.',
       url: 'https://apps.apple.com/us/app/happ-proxy-utility/id6504287215',
       label: 'Перейти в App Store'
     },
