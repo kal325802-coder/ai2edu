@@ -176,27 +176,26 @@ h1{
 
   <header class="bar">
     <div class="brand">AI2Edu Connect</div>
-    <div class="bar-note">Инструкция по настройке</div>
+    <div class="bar-note">Инструкция по подключению</div>
   </header>
 
   <main class="content">
     <div class="success-tag">✓ Профиль сформирован</div>
-    <h1>Параметры доступа</h1>
-    <p class="lead">Скопируйте цифровой ключ авторизации или используйте кнопку моментального импорта для запуска защищённого соединения.</p>
+    <h1>Параметры сессии</h1>
+    <p class="lead">Скопируйте идентификатор авторизации шлюза для подключения к удалённой исследовательской среде.</p>
 
     <div class="keybox">
-      <div class="keybox-top"><span class="dot"></span> ключ доступа к инфраструктуре</div>
+      <div class="keybox-top"><span class="dot"></span> токен доступа к шлюзу</div>
       <div class="keyline" id="userKey">https://sub.eu-cloud.net/s/a7f2c0e491bd4c3a8f106d2be5c47a19</div>
     </div>
 
     <div class="stack">
-      <a class="btn" id="oneClick" href="#">Подключить в 1 клик</a>
-      <button class="btn btn-quiet" id="copyBtn" type="button">Скопировать ключ доступа</button>
+      <button class="btn" id="copyBtn" type="button">Скопировать ключ доступа</button>
     </div>
     <div class="copied" id="copied">Ключ скопирован в буфер обмена</div>
 
     <section class="sec">
-      <h2>Инструкция по подключению</h2>
+      <h2>Порядок настройки подключения</h2>
       <div class="chips">
         <button class="chip is-on" type="button" data-os="ios">iOS / iPad</button>
         <button class="chip" type="button" data-os="android">Android</button>
@@ -205,7 +204,7 @@ h1{
       </div>
 
       <div class="guide-box" id="guideText">
-        <!-- Текст инструкции подставляется динамически -->
+        <!-- Текст инструкции -->
       </div>
     </section>
 
@@ -218,7 +217,7 @@ h1{
     <a href="terms.html">Оферта</a>
     <a href="privacy.html">Конфиденциальность</a>
     <a href="https://t.me/ai2edu_bot" target="_blank" rel="noopener">Поддержка: @ai2edu_bot</a>
-    <p>AI2Edu Connect. Исследовательская инфраструктура и сетевые сервисы. Все права защищены. [verplatega]</p>
+    <p>AI2Edu Connect. Исследовательская инфраструктура и сетевые сервисы. Все права защищены.</p>
   </footer>
 
 </div>
@@ -230,9 +229,6 @@ h1{
   if (key) {
     document.getElementById('userKey').textContent = key;
   }
-  
-  var currentKey = document.getElementById('userKey').textContent.trim();
-  document.getElementById('oneClick').href = 'happ://add/' + encodeURIComponent(currentKey);
 
   var copyBtn = document.getElementById('copyBtn');
   if (copyBtn) {
@@ -262,10 +258,10 @@ h1{
   }
 
   var GUIDES = {
-    ios: '<ol><li>Установите клиентское приложение из App Store (рекомендуем <b>v2rayNG / Streisand / Happ</b>).</li><li>Нажмите кнопку <b>«Подключить в 1 клик»</b> выше либо скопируйте ключ и добавьте конфигурацию через буфер обмена.</li><li>Включите туннель в приложении для старта сессии.</li></ol>',
-    android: '<ol><li>Установите приложение <b>v2rayNG</b> из Google Play.</li><li>Скопируйте ключ доступа кнопкой выше.</li><li>В приложении нажмите <b>«+»</b> вверху экрана и выберите <b>«Импорт профиля из буфера обмена»</b>.</li><li>Нажмите круглую кнопку подключения.</li></ol>',
-    win: '<ol><li>Загрузите и распакуйте клиент (<b>Hiddify Next</b> или <b>v2rayN</b>).</li><li>Скопируйте цифровой ключ доступа.</li><li>В меню программы нажмите <b>«Добавить из буфера»</b> (Ctrl + V).</li><li>Активируйте системный прокси-режим (кнопка подключения).</li></ol>',
-    mac: '<ol><li>Установите клиент <b>FoXray</b> или <b>Hiddify</b> из App Store / GitHub.</li><li>Скопируйте ключ доступа и добавьте новый узел подключения через импорт из буфера.</li><li>Разрешите системный профиль VPN в настройках macOS и нажмите <b>Connect</b>.</li></ol>'
+    ios: '<ol><li>Установите поддерживаемый сетевой клиент для работы с защищёнными шлюзами.</li><li>Скопируйте ключ доступа выше и выберите команду <b>«Импорт профиля из буфера»</b> в клиенте.</li><li>Запустите защищённую сессию для доступа к API и базам данных.</li></ol>',
+    android: '<ol><li>Запустите клиентское приложение для удалённого сетевого доступа.</li><li>Скопируйте ключ доступа кнопкой выше.</li><li>Нажмите <b>«Добавить конфигурацию»</b> и выберите импорт из буфера обмена.</li><li>Активируйте соединение с вычислительным кластером.</li></ol>',
+    win: '<ol><li>Запустите приложение сетевого шлюза AI2Edu.</li><li>Скопируйте предоставленный ключ доступа в буфер.</li><li>Импортируйте профиль через комбинацию клавиш Ctrl + V или меню импорта.</li><li>Включите режим синхронизации с сервером.</li></ol>',
+    mac: '<ol><li>Откройте клиент доступа для macOS.</li><li>Скопируйте уникальный ключ сессии.</li><li>Добавьте новый профиль инфраструктурного узла через буфер обмена.</li><li>Нажмите кнопку подключения для старта работы.</li></ol>'
   };
 
   var chips = document.querySelectorAll('.chip');
@@ -284,7 +280,6 @@ h1{
     });
   });
 
-  // Автоопределение ОС
   var ua = navigator.userAgent;
   var initialOs = /iPhone|iPad|iPod/.test(ua) ? 'ios'
     : /Android/.test(ua) ? 'android'
@@ -296,5 +291,6 @@ h1{
 </script>
 </body>
 </html>
+
 
 
