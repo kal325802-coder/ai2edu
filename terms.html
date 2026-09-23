@@ -1,48 +1,160 @@
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <title>Пользовательское соглашение — AI2Edu Connect</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background: #0b0f19;
-      color: #cbd5e1;
-      max-width: 800px;
-      margin: 40px auto;
-      padding: 0 20px;
-      line-height: 1.7;
-    }
-    h1, h2 { color: #f8fafc; margin-top: 24px; margin-bottom: 12px; }
-    a { color: #38bdf8; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    .back { display: inline-block; margin-bottom: 20px; }
-    hr { border: none; border-top: 1px solid #1e293b; margin: 30px 0; }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Пользовательское соглашение — AI2Edu Connect</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#16162E">
+<link rel="icon" href="./favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="./favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="./favicon-192.png">
+<link rel="apple-touch-icon" href="./apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#16162E;
+  --paper:#ECEAF3;
+  --surface:#F7F6FB;
+  --line:#D5D2E0;
+  --line-strong:#C4C0D6;
+  --muted:#56546F;
+  --action:#E8B23A;
+  --action-press:#D79F22;
+  --radius:14px;
+  --gutter:20px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"Golos Text",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  font-size:15px;
+  line-height:1.6;
+  letter-spacing:.005em;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+.wrap{
+  max-width:480px;
+  margin:0 auto;
+  min-height:100vh;
+  background:var(--paper);
+  padding-bottom:env(safe-area-inset-bottom);
+}
+a{color:inherit}
+.bar{
+  display:flex;
+  align-items:baseline;
+  justify-content:space-between;
+  gap:12px;
+  padding:16px var(--gutter) 14px;
+  border-bottom:1px solid var(--line);
+}
+.brand{font-weight:600;font-size:17px;letter-spacing:.01em}
+.bar-note{font-size:13px;color:var(--muted)}
+.content{padding:30px var(--gutter) 40px}
+.back-link{
+  display:inline-block;
+  font-size:14px;
+  font-weight:500;
+  color:var(--muted);
+  text-decoration:none;
+  margin-bottom:20px;
+}
+.back-link:hover{color:var(--ink)}
+h1{
+  font-size:24px;
+  font-weight:700;
+  line-height:1.25;
+  letter-spacing:-.01em;
+  margin-bottom:12px;
+}
+.date{font-size:13px;color:var(--muted);margin-bottom:24px}
+.card{
+  background:var(--surface);
+  border:1px solid var(--line-strong);
+  border-radius:var(--radius);
+  padding:20px;
+  margin-bottom:18px;
+}
+.card h2{
+  font-size:16px;
+  font-weight:600;
+  margin-bottom:10px;
+  letter-spacing:-.005em;
+}
+.card p{
+  font-size:14px;
+  color:var(--muted);
+  line-height:1.55;
+  margin-bottom:10px;
+}
+.card p:last-child{margin-bottom:0}
+.card b{color:var(--ink);font-weight:600}
+.foot{
+  padding:24px var(--gutter) 34px;
+  border-top:1px solid var(--line);
+  color:var(--muted);
+  font-size:13px;
+}
+.foot a{display:inline-block;margin-right:14px;margin-bottom:7px}
+.foot p{margin-top:10px;max-width:44ch}
+
+@media (min-width:560px){
+  body{background:var(--surface)}
+  .wrap{border-left:1px solid var(--line);border-right:1px solid var(--line)}
+}
+</style>
 </head>
 <body>
-  <a href="/" class="back">← На главную</a>
-  <h1>Пользовательское соглашение</h1>
-  <p><strong>Дата вступления в силу:</strong> 23 сентября 2026 г.</p>
+<div class="wrap">
 
-  <h2>1. Предмет соглашения</h2>
-  <p>1.1. Сервис <strong>AI2Edu Connect</strong> предоставляет пользователю на возмездной основе доступ к вычислительной инфраструктуре, виртуальным шлюзам передачи данных и удалённым средам для проведения академических, прикладных и научных исследований.</p>
+  <header class="bar">
+    <div class="brand">AI2Edu Connect</div>
+    <div class="bar-note">Документация</div>
+  </header>
 
-  <h2>2. Порядок расчётов и доставки услуг</h2>
-  <p>2.1. Доступ предоставляется на условиях предоплаты в соответствии с тарифами, размещёнными на сайте: Исследовательский (199 ₽), Семестровый (499 ₽), Академический год (1 490 ₽).</p>
-  <p>2.2. Оплата производится через Систему быстрых платежей (СБП) или банковские карты РФ.</p>
-  <p>2.3. Обязательство Сервиса по предоставлению доступа считается исполненным в момент генерации уникального цифрового токена конфигурации в окне браузера и/или отправки его на email пользователя сразу после подтверждения транзакции.</p>
+  <main class="content">
+    <a href="/" class="back-link">← На главную</a>
+    <h1>Пользовательское соглашение</h1>
+    <div class="date">Публичная оферта от 23 сентября 2026 г.</div>
 
-  <h2>3. Правила использования и ответственность</h2>
-  <p>3.1. Пользователь обязуется не использовать предоставляемые мощности для противоправных действий, включая рассылку спама, нарушение чужих интеллектуальных прав и сетевые атаки.</p>
-  <p>3.2. Сервис оставляет за собой право аннулировать токен доступа при выявлении грубых нарушений сетевой этики без возврата средств.</p>
+    <div class="card">
+      <h2>1. Предмет оферты</h2>
+      <p>Настоящий документ является публичным предложением сервиса <b>AI2Edu Connect</b> заключить договор на возмездное оказание цифровых услуг по предоставлению защищённого удалённого доступа к вычислительным ресурсам и исследовательским средам.</p>
+    </div>
 
-  <h2>4. Поддержка и обратная связь</h2>
-  <p>Техническая поддержка: <a href="mailto:support@ai2edu.tech">support@ai2edu.tech</a></p>
+    <div class="card">
+      <h2>2. Порядок расчётов и доставки</h2>
+      <p><b>2.1. Тарифные планы:</b> услуги предоставляются на условиях предоплаты согласно выбранному тарифу: 1 месяц (199 ₽), 3 месяца (499 ₽), 12 месяцев (1 490 ₽).</p>
+      <p><b>2.2. Момент оказания услуги:</b> обязательство Сервиса по предоставлению доступа считается исполненным в полном объёме в момент генерации уникального цифрового ключа активации на странице завершения транзакции и отправки параметров на email пользователя.</p>
+      <p><b>2.3. Лимиты подключений:</b> единый профиль доступа допускается к одновременному использованию не более чем на 3 (трёх) персональных устройствах Заказчика.</p>
+    </div>
 
-  <hr>
-  <p style="color: #64748b; font-size: 12px;">Verification token: verplatega</p>
+    <div class="card">
+      <h2>3. Политика возврата средств</h2>
+      <p><b>3.1. Безусловный возврат:</b> в течение 7 календарных дней с момента совершения платежа Заказчик вправе запросить 100% возврат средств при обращении в поддержку без объяснения причин.</p>
+      <p><b>3.2. Частичный возврат:</b> по истечении 7 дней возврат осуществляется пропорционально полным неиспользованным календарным месяцам действия подписки.</p>
+      <p><b>3.3. Сроки зачисления:</b> возврат производится тем же способом и на те же реквизиты в срок от 1 до 10 рабочих дней в зависимости от банка-эмитента.</p>
+    </div>
+
+    <div class="card">
+      <h2>4. Поддержка пользователей</h2>
+      <p>Официальный канал связи по вопросам обслуживания и консультаций — чат технической поддержки в Telegram: <b>@ai2edu_bot</b>.</p>
+    </div>
+  </main>
+
+  <footer class="foot">
+    <a href="terms.html">Оферта</a>
+    <a href="privacy.html">Конфиденциальность</a>
+    <a href="https://t.me/ai2edu_bot" target="_blank" rel="noopener">Поддержка: @ai2edu_bot</a>
+    <p>AI2Edu Connect. Исследовательская инфраструктура и сетевые сервисы. Все права защищены. [verplatega]</p>
+  </footer>
+
+</div>
 </body>
 </html>
