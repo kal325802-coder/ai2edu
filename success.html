@@ -3,86 +3,298 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>AI2Edu — Заказ успешно оформлен</title>
+<title>AI2Edu Connect — Активация доступа</title>
 <meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#16162E">
 <link rel="icon" href="./favicon.ico" sizes="any">
-<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" sizes="32x32" href="./favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="./favicon-192.png">
+<link rel="apple-touch-icon" href="./apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{
   --ink:#16162E;
   --paper:#ECEAF3;
   --surface:#F7F6FB;
-  --line:#C9C5DA;
+  --line:#D5D2E0;
+  --line-strong:#C4C0D6;
   --muted:#56546F;
   --action:#E8B23A;
+  --action-press:#D79F22;
   --radius:14px;
   --gutter:20px;
 }
 *{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
 body{
   background:var(--paper);
   color:var(--ink);
   font-family:"Golos Text",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
   font-size:16px;
-  line-height:1.45;
-  min-height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:20px;
+  line-height:1.5;
+  letter-spacing:.005em;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
 }
-.card{
-  max-width:440px;
-  width:100%;
-  background:var(--surface);
+.wrap{
+  max-width:480px;
+  margin:0 auto;
+  min-height:100vh;
+  background:var(--paper);
+  padding-bottom:env(safe-area-inset-bottom);
+}
+a{color:inherit}
+.bar{
+  display:flex;
+  align-items:baseline;
+  justify-content:space-between;
+  gap:12px;
+  padding:16px var(--gutter) 14px;
+  border-bottom:1px solid var(--line);
+}
+.brand{font-weight:600;font-size:17px;letter-spacing:.01em}
+.bar-note{font-size:13px;color:var(--muted)}
+
+.content{padding:32px var(--gutter) 30px}
+.success-tag{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  font-size:13px;
+  font-weight:600;
+  color:var(--ink);
+  background:var(--action);
+  padding:4px 10px;
+  border-radius:999px;
+  margin-bottom:14px;
+}
+h1{
+  font-weight:700;
+  font-size:26px;
+  line-height:1.22;
+  letter-spacing:-.01em;
+  margin-bottom:10px;
+}
+.lead{color:var(--muted);font-size:15px;line-height:1.55;margin-bottom:20px}
+
+.keybox{
+  margin:20px 0 16px;
   border:1px solid var(--line);
   border-radius:var(--radius);
-  padding:36px 24px;
-  text-align:center;
+  background:var(--surface);
+  overflow:hidden;
 }
-.icon{
-  width:52px;
-  height:52px;
-  border-radius:50%;
-  background:var(--ink);
-  color:var(--paper);
+.keybox-top{
   display:flex;
   align-items:center;
-  justify-content:center;
-  font-size:24px;
-  margin:0 auto 20px;
+  gap:8px;
+  padding:11px 14px;
+  border-bottom:1px solid var(--line);
+  font-size:13px;
+  color:var(--muted);
 }
-h1{font-weight:900;font-size:24px;margin-bottom:12px;letter-spacing:-.02em}
-p{color:var(--muted);font-size:15px;margin-bottom:24px}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--ink);flex:none}
+.keyline{
+  padding:14px;
+  font-family:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  font-size:12.5px;
+  line-height:1.6;
+  word-break:break-all;
+}
+
 .btn{
   display:block;
   width:100%;
-  padding:15px;
+  padding:16px 18px;
+  border:none;
   border-radius:var(--radius);
-  background:var(--ink);
-  color:var(--paper);
-  text-decoration:none;
+  background:var(--action);
+  color:var(--ink);
+  font-family:inherit;
   font-weight:600;
-  font-size:15px;
-  transition:opacity .2s;
+  font-size:16px;
+  letter-spacing:.01em;
+  text-align:center;
+  text-decoration:none;
+  cursor:pointer;
 }
-.btn:hover{opacity:.9}
-.support{margin-top:18px;font-size:13.5px;color:var(--muted)}
-.support a{color:var(--ink);font-weight:600}
+.btn:active{background:var(--action-press)}
+.btn-quiet{background:transparent;border:1px solid var(--line);font-weight:500}
+.btn-quiet:active{background:var(--surface)}
+.stack{display:grid;gap:10px;margin-top:4px}
+.copied{margin-top:10px;font-size:13px;text-align:center;color:var(--muted);visibility:hidden}
+.copied.on{visibility:visible}
+
+.sec{padding:26px 0;border-top:1px solid var(--line);margin-top:24px}
+.sec h2{font-weight:600;font-size:18px;letter-spacing:-.005em;margin-bottom:14px}
+
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.chip{
+  padding:8px 14px;
+  border:1px solid var(--line);
+  border-radius:999px;
+  background:var(--surface);
+  color:var(--ink);
+  font-family:inherit;
+  font-size:14px;
+  font-weight:500;
+  cursor:pointer;
+}
+.chip.is-on{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+
+.guide-box{
+  padding:16px;
+  border:1px solid var(--line-strong);
+  border-radius:var(--radius);
+  background:var(--surface);
+  font-size:14.5px;
+}
+.guide-box ol{margin-left:18px;color:var(--muted);line-height:1.55}
+.guide-box li{margin-bottom:8px}
+.guide-box li:last-child{margin-bottom:0}
+.guide-box b{color:var(--ink);font-weight:600}
+
+.foot{
+  padding:24px var(--gutter) 34px;
+  border-top:1px solid var(--line);
+  color:var(--muted);
+  font-size:13px;
+}
+.foot a{display:inline-block;margin-right:14px;margin-bottom:7px}
+.foot p{margin-top:10px;max-width:44ch}
+
+@media (min-width:560px){
+  body{background:var(--surface)}
+  .wrap{border-left:1px solid var(--line);border-right:1px solid var(--line)}
+}
 </style>
 </head>
 <body>
+<div class="wrap">
 
-<div class="card">
-  <div class="icon">✓</div>
-  <h1>Заказ успешно оформлен</h1>
-  <p>Доступ к материалам платформы активирован. Подтверждение и ссылка отправлены на вашу электронную почту.</p>
-  <a class="btn" href="https://t.me/ai2edu_bot" target="_blank" rel="noopener">Перейти в Telegram-канал</a>
-  <div class="support">
-    Вопросы по заказу: <a href="https://t.me/ai2edu_bot" target="_blank">@ai2edu_bot</a>
-  </div>
+  <header class="bar">
+    <div class="brand">AI2Edu Connect</div>
+    <div class="bar-note">Инструкция по настройке</div>
+  </header>
+
+  <main class="content">
+    <div class="success-tag">✓ Профиль сформирован</div>
+    <h1>Параметры доступа</h1>
+    <p class="lead">Скопируйте цифровой ключ авторизации или используйте кнопку моментального импорта для запуска защищённого соединения.</p>
+
+    <div class="keybox">
+      <div class="keybox-top"><span class="dot"></span> ключ доступа к инфраструктуре</div>
+      <div class="keyline" id="userKey">https://sub.eu-cloud.net/s/a7f2c0e491bd4c3a8f106d2be5c47a19</div>
+    </div>
+
+    <div class="stack">
+      <a class="btn" id="oneClick" href="#">Подключить в 1 клик</a>
+      <button class="btn btn-quiet" id="copyBtn" type="button">Скопировать ключ доступа</button>
+    </div>
+    <div class="copied" id="copied">Ключ скопирован в буфер обмена</div>
+
+    <section class="sec">
+      <h2>Инструкция по подключению</h2>
+      <div class="chips">
+        <button class="chip is-on" type="button" data-os="ios">iOS / iPad</button>
+        <button class="chip" type="button" data-os="android">Android</button>
+        <button class="chip" type="button" data-os="win">Windows</button>
+        <button class="chip" type="button" data-os="mac">macOS</button>
+      </div>
+
+      <div class="guide-box" id="guideText">
+        <!-- Текст инструкции подставляется динамически -->
+      </div>
+    </section>
+
+    <div style="margin-top:28px">
+      <a class="btn btn-quiet" href="https://t.me/ai2edu_bot" target="_blank" rel="noopener">Поддержка в Telegram: @ai2edu_bot</a>
+    </div>
+  </main>
+
+  <footer class="foot">
+    <a href="terms.html">Оферта</a>
+    <a href="privacy.html">Конфиденциальность</a>
+    <a href="https://t.me/ai2edu_bot" target="_blank" rel="noopener">Поддержка: @ai2edu_bot</a>
+    <p>AI2Edu Connect. Исследовательская инфраструктура и сетевые сервисы. Все права защищены. [verplatega]</p>
+  </footer>
+
 </div>
 
+<script>
+(function () {
+  var qs = new URLSearchParams(location.search);
+  var key = qs.get('key') || qs.get('sub');
+  if (key) {
+    document.getElementById('userKey').textContent = key;
+  }
+  
+  var currentKey = document.getElementById('userKey').textContent.trim();
+  document.getElementById('oneClick').href = 'happ://add/' + encodeURIComponent(currentKey);
+
+  var copyBtn = document.getElementById('copyBtn');
+  if (copyBtn) {
+    copyBtn.addEventListener('click', function () {
+      var text = document.getElementById('userKey').textContent.trim();
+      var note = document.getElementById('copied');
+      var show = function () {
+        note.classList.add('on');
+        copyBtn.textContent = 'Готово';
+        setTimeout(function () {
+          note.classList.remove('on');
+          copyBtn.textContent = 'Скопировать ключ доступа';
+        }, 2200);
+      };
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(text).then(show, show);
+      } else {
+        var t = document.createElement('textarea');
+        t.value = text;
+        document.body.appendChild(t);
+        t.select();
+        document.execCommand('copy');
+        document.body.removeChild(t);
+        show();
+      }
+    });
+  }
+
+  var GUIDES = {
+    ios: '<ol><li>Установите клиентское приложение из App Store (рекомендуем <b>v2rayNG / Streisand / Happ</b>).</li><li>Нажмите кнопку <b>«Подключить в 1 клик»</b> выше либо скопируйте ключ и добавьте конфигурацию через буфер обмена.</li><li>Включите туннель в приложении для старта сессии.</li></ol>',
+    android: '<ol><li>Установите приложение <b>v2rayNG</b> из Google Play.</li><li>Скопируйте ключ доступа кнопкой выше.</li><li>В приложении нажмите <b>«+»</b> вверху экрана и выберите <b>«Импорт профиля из буфера обмена»</b>.</li><li>Нажмите круглую кнопку подключения.</li></ol>',
+    win: '<ol><li>Загрузите и распакуйте клиент (<b>Hiddify Next</b> или <b>v2rayN</b>).</li><li>Скопируйте цифровой ключ доступа.</li><li>В меню программы нажмите <b>«Добавить из буфера»</b> (Ctrl + V).</li><li>Активируйте системный прокси-режим (кнопка подключения).</li></ol>',
+    mac: '<ol><li>Установите клиент <b>FoXray</b> или <b>Hiddify</b> из App Store / GitHub.</li><li>Скопируйте ключ доступа и добавьте новый узел подключения через импорт из буфера.</li><li>Разрешите системный профиль VPN в настройках macOS и нажмите <b>Connect</b>.</li></ol>'
+  };
+
+  var chips = document.querySelectorAll('.chip');
+  var guideBox = document.getElementById('guideText');
+
+  function setOs(osKey) {
+    Array.prototype.forEach.call(chips, function (c) {
+      c.classList.toggle('is-on', c.dataset.os === osKey);
+    });
+    guideBox.innerHTML = GUIDES[osKey] || GUIDES.ios;
+  }
+
+  Array.prototype.forEach.call(chips, function (c) {
+    c.addEventListener('click', function () {
+      setOs(c.dataset.os);
+    });
+  });
+
+  // Автоопределение ОС
+  var ua = navigator.userAgent;
+  var initialOs = /iPhone|iPad|iPod/.test(ua) ? 'ios'
+    : /Android/.test(ua) ? 'android'
+    : /Mac OS X/.test(ua) ? 'mac'
+    : /Windows/.test(ua) ? 'win' : 'ios';
+
+  setOs(initialOs);
+})();
+</script>
 </body>
 </html>
+
+
